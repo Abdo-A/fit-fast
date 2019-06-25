@@ -1,19 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Font } from 'expo';
+import React, { Component } from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>App</Text>
-    </View>
-  );
-}
+import MainNavigator from './src/routes/MainNavigator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+export default class App extends Component {
+  render() {
+    return <MainNavigator />;
   }
-});
+}
