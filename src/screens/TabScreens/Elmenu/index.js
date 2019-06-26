@@ -5,7 +5,7 @@ export default class Elmenu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>لسه مفيش منيو عشان شهاب مدانيش المنيو</Text>
+        <Text>لسه مفيش منيو عشان شهاب مقاليش عالسندوتشات</Text>
       </View>
     );
   }
