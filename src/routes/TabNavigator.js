@@ -1,6 +1,5 @@
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import FIcon from 'react-native-vector-icons/FontAwesome';
-import IonIcon from 'react-native-vector-icons/Ionicons';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from 'react';
 
@@ -15,27 +14,27 @@ export default createMaterialTopTabNavigator(
     tabScreen1: {
       screen: Elmenu,
       navigationOptions: {
-        tabBarLabel: 'المنيو',
+        tabBarLabel: 'Menu',
         tabBarIcon: ({ tintColor }) => (
-          <MIcon name="glasses" size={24} color={tintColor} />
+          <FIcon name="list-alt" size={24} color={tintColor} />
         )
       }
     },
     tabScreen2: {
       screen: Otlob,
       navigationOptions: {
-        tabBarLabel: 'اطلب',
+        tabBarLabel: 'Order',
         tabBarIcon: ({ tintColor }) => (
-          <FIcon name="commenting-o" size={24} color={tintColor} />
+          <FIcon name="arrow-right" size={24} color={tintColor} />
         )
       }
     },
     tabScreen3: {
       screen: Talabaty,
       navigationOptions: {
-        tabBarLabel: 'طلباتي',
+        tabBarLabel: 'My orders',
         tabBarIcon: ({ tintColor }) => (
-          <IonIcon name="ios-people" size={24} color={tintColor} />
+          <MIcon name="food-apple" size={24} color={tintColor} />
         )
       }
     }
@@ -44,7 +43,7 @@ export default createMaterialTopTabNavigator(
     // Config
 
     initialRouteName: 'tabScreen1',
-    order: ['tabScreen3', 'tabScreen2', 'tabScreen1'],
+    order: ['tabScreen1', 'tabScreen2', 'tabScreen3'],
     tabBarPosition: 'bottom',
     swipeEnabled: true,
     animationEnabled: false,
