@@ -7,12 +7,13 @@ import { colors, sizes } from '../assets/base';
 import Elmenu from '../screens/TabScreens/Elmenu';
 import Otlob from '../screens/TabScreens/Otlob';
 import Talabaty from '../screens/TabScreens/Talabaty';
+import UploadImage from '../screens/tests/UploadImage';
 
 export default createMaterialTopTabNavigator(
   {
     //--specific navigationOptions for each tab
     tabScreen1: {
-      screen: Elmenu,
+      screen: UploadImage,
       navigationOptions: {
         tabBarLabel: 'Menu',
         tabBarIcon: ({ tintColor }) => (
