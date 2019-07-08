@@ -17,7 +17,7 @@ export default createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: 'Menu',
         tabBarIcon: ({ tintColor }) => (
-          <FIcon name="list-alt" size={24} color={tintColor} />
+          <FIcon name="list-alt" size={24} style={{ color: tintColor }} />
         )
       }
     },
@@ -26,7 +26,7 @@ export default createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: 'Order',
         tabBarIcon: ({ tintColor }) => (
-          <FIcon name="arrow-right" size={24} color={tintColor} />
+          <FIcon name="arrow-right" size={24} style={{ color: tintColor }} />
         )
       }
     },
@@ -35,7 +35,7 @@ export default createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: 'My orders',
         tabBarIcon: ({ tintColor }) => (
-          <MIcon name="food-apple" size={24} color={tintColor} />
+          <MIcon name="food-apple" size={24} style={{ color: tintColor }} />
         )
       }
     }

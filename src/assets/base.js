@@ -56,7 +56,7 @@ export const fontSizes = {
 // COLORS
 
 const primaryColor = Color('#4e88a2');
-const secondaryColor = Color('##25ecaf');
+const secondaryColor = Color('#25ecaf');
 const tertiaryColor = Color('#F5F5DC');
 const black = Color('#232323');
 const white = Color('#EAEEFF');
