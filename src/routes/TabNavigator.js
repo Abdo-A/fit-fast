@@ -3,7 +3,7 @@ import FIcon from 'react-native-vector-icons/FontAwesome';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import React from 'react';
 
-import { colors, sizes } from '../assets/base';
+import { colors, sizes } from '../assets/styles/base';
 import Elmenu from '../screens/TabScreens/Elmenu';
 import Otlob from '../screens/TabScreens/Otlob';
 import Talabaty from '../screens/TabScreens/Talabaty';
@@ -13,7 +13,7 @@ export default createMaterialTopTabNavigator(
   {
     //--specific navigationOptions for each tab
     tabScreen1: {
-      screen: UploadImage,
+      screen: Elmenu,
       navigationOptions: {
         tabBarLabel: 'Menu',
         tabBarIcon: ({ tintColor }) => (

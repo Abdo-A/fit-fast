@@ -2,7 +2,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Text } from 'react-native';
 import React from 'react';
 
-import { colors } from '../assets/base';
+import { colors } from '../assets/styles/base';
 import TabNavigator from './TabNavigator';
 
 const RootStack = createStackNavigator(

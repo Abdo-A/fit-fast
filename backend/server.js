@@ -26,8 +26,8 @@ require('./config/dbconnect');
 app.use(cors());
 
 // Routes
-app.use('/info', (req, res) => res.send('Fit Court App API'));
-// app.use('/api/user', require('./routes/user'));
+app.use('/api/info', (req, res) => res.send('Fit Court App API'));
+app.use('/api/meal', require('./routes/meal'));
 // app.use('/api/order', require('./routes/order'));
 // app.use('/api/meal', require('./routes/meal'));
 

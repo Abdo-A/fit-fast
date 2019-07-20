@@ -1,57 +1,72 @@
+import { connect } from 'react-redux';
 import { Text, Image, View, Button } from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import * as ImagePicker from 'expo-image-picker';
 import React, { Component } from 'react';
 
 import { ensureCameraRollPermission } from '../../../helpers/ensurePermissions';
+import * as MealActions from '../../../store/actions/mealActions';
+import QuickHint from '../../../components/QuickHint/QuickHint';
 import styles from './style';
+import uploadImage from '../../../helpers/uploadImage';
+import pickImage from '../../../helpers/pickImage';
 
-export default class UploadImage extends Component {
+class UploadImage extends Component {
   state = {
-    avatar: '',
-    imageOversize: false
+    avatar: ''
   };
 
-  pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({});
+  pickMealImage = async () => {
+    const avatar = await pickImage();
+    this.setState(() => ({
+      avatar
+    }));
+  };
 
-    const { uri } = result;
+  onSubmit = async () => {
+    const { avatar } = this.state;
 
-    if (!result.cancelled) {
-      this.getFileSize(uri).then((size) => {
-        if (size > 5000000) this.setState({ avatar: '', imageOversize: true });
-        else {
-          this.setState({ avatar: uri, imageOversize: false });
-        }
-      });
+    const { createMeal } = this.props;
+
+    const newMeal = {};
+
+    if (avatar) {
+      newMeal.pictureLinks = [await uploadImage(avatar, 'meals', 'lazanya')];
     }
-  };
 
-  getFileSize = async (fileUri) => {
-    const fileInfo = await FileSystem.getInfoAsync(fileUri);
-    return fileInfo.size;
+    newMeal.name = 'LLLLL';
+    newMeal.price = '234';
+    newMeal.ingredients = '32r4g3r';
+    newMeal.nutritionFacts = 'ev';
+
+    const callback = () => {
+      QuickHint('Meal Successfully created');
+    };
+    createMeal(newMeal, callback);
   };
 
   render() {
-    const { avatar, imageOversize } = this.state;
+    const { avatar } = this.state;
     return (
       <View>
         <Button
           style={styles.uploadButton}
-          onPress={() => ensureCameraRollPermission(this.pickImage)}
+          onPress={() => ensureCameraRollPermission(this.pickMealImage)}
           title="Pick from Gallery"
         />
         <View style={styles.imageView}>
           {avatar ? (
             <Image style={styles.image} source={{ uri: avatar }} />
           ) : null}
-          {imageOversize && (
-            <Text style={styles.sizeError}>
-              Image is bigger than 5 MB, please choose another image
-            </Text>
-          )}
         </View>
       </View>
     );
   }
 }
+
+const mapDispatchToProps = {
+  createMeal: MealActions.createMeal
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(UploadImage);

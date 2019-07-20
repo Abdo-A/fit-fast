@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../assets/base';
+import { colors } from '../../../assets/styles/base';
 
 const styles = StyleSheet.create({
   uploadButton: {

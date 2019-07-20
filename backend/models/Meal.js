@@ -7,10 +7,18 @@ const MealSchema = new Schema({
     type: String,
     required: true
   },
-  pictureLink: {
-    type: String,
-    required: true
-  },
+  pictures: [
+    {
+      link: {
+        type: String,
+        required: true
+      },
+      order: {
+        type: Number,
+        default: 1
+      }
+    }
+  ],
   price: {
     type: String,
     required: true
@@ -24,7 +32,8 @@ const MealSchema = new Schema({
   },
   state: {
     // current, archived
-    type: String
+    type: String,
+    default: 'current'
   },
   reviews: [
     {
