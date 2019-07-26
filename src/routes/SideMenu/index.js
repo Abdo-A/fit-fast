@@ -6,6 +6,7 @@ import SideDrawer from 'react-native-side-menu';
 
 import * as generalActions from '../../store/actions/generalActions';
 import styles from './styles';
+import { colors } from '../../assets/styles/base';
 
 class SideMenu extends Component {
   onChangeMenu = (opened) => {
@@ -32,10 +33,12 @@ class SideMenu extends Component {
       <View style={styles.container}>
         {list.map((item, i) => (
           <ListItem
-            style={styles.menuItem}
+            containerStyle={styles.menuItemContainer}
+            titleStyle={styles.menuItemText}
+            style
             key={i}
             title={item.title}
-            leftIcon={{ name: item.icon }}
+            leftIcon={{ name: item.icon, color: colors.white.toString() }}
           />
         ))}
       </View>

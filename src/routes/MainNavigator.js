@@ -4,15 +4,16 @@ import { Text } from 'react-native';
 import React from 'react';
 
 import { colors, gaps, fontSizes } from '../assets/styles/base';
-import TabNavigator from './TabNavigator';
 import SideMenuOpener from '../components/routes/SideMenu/SideMenuOpener';
+import tabNavigators from './TabNavigators';
 
 const RootStack = createStackNavigator(
   {
-    Tab: TabNavigator
+    AdminTab: tabNavigators.AdminTabNavigator,
+    UserTab: tabNavigators.UserTabNavigator
   },
   {
-    initialRouteName: 'Tab',
+    initialRouteName: 'AdminTab',
 
     defaultNavigationOptions: ({ navigation }) => {
       //--first, we check which screen it is:
@@ -31,10 +32,10 @@ const RootStack = createStackNavigator(
       let tabBarVisible = true;
       //and so on...
 
-      //For each screen:
-      if (screen === 'Tab') {
-        headerLeft = <SideMenuOpener />;
+      headerLeft = <SideMenuOpener />;
 
+      //For each screen:
+      if (screen === 'AdminTab') {
         const { routes, index } = navigation.state;
         let tabScreen = routes[index].routeName;
 

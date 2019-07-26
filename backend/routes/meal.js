@@ -16,4 +16,10 @@ router.post(
   mealController.createMeal
 );
 
+router.get(
+  '/all',
+  // passport.authenticate('jwt', { session: false }),
+  mealController.getAllMeals
+);
+
 module.exports = router;

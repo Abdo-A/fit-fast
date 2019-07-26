@@ -6,3 +6,7 @@ export const CLOSE_SIDE_MENU = 'CLOSE_SIDE_MENU';
 
 // Error
 export const SET_ERRORS = 'SET_ERRORS';
+
+// Meal
+
+export const GET_ALL_MEALS = 'GET_ALL_MEALS';

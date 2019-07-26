@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  loading: false,
+  isLoading: false,
   sideMenuOpen: false
 };
 
@@ -10,13 +10,13 @@ export default (state = INITIAL_STATE, action) => {
     case actionTypes.START_LOADING:
       return {
         ...state,
-        loading: true
+        isLoading: true
       };
 
     case actionTypes.END_LOADING:
       return {
         ...state,
-        loading: false
+        isLoading: false
       };
 
     case actionTypes.OPEN_SIDE_MENU:

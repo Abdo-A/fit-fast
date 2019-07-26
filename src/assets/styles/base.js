@@ -15,7 +15,8 @@ Dimensions.addEventListener('change', (dims) => {
 
 export const sizes = {
   bottomTabHeight: 70,
-  bottomTabHeight: 65
+  bottomTabHeight: 65,
+  mainContentWidth: '90%'
 };
 
 // GAPS

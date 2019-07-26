@@ -1,17 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default class Elmenu extends Component {
+export default class Actions extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>لسه مفيش منيو عشان شهاب مقاليش عالسندوتشات</Text>
+        <Text>يا باشا بقولك مافيش منيو يبقى اكيد مينفعش تطلب!!</Text>
       </View>
     );
   }
 }
 
-Elmenu.propTypes = {};
+Actions.propTypes = {};
 
 const styles = StyleSheet.create({
   container: {

@@ -7,8 +7,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     height: '100%'
   },
-  menuItem: {
-    marginBottom: 10
+  menuItemContainer: {
+    marginBottom: 10,
+    backgroundColor: 'transparent'
+  },
+  menuItemText: {
+    color: colors.white
   }
 });
 
