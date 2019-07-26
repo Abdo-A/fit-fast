@@ -4,10 +4,12 @@ import React, { Component } from 'react';
 import { loadFonts } from './assets/styles/fonts/loadFonts';
 import MainNavigator from './routes/MainNavigator';
 import store from './store/createStore';
+import SideMenu from './routes/SideMenu';
 
 // The main App component with the following configured:
 // => Redux
-// => Navigator
+// => React Navigation
+// => Side Menu (Drawer)
 
 export default class AppConfigured extends Component {
   state = {
@@ -27,7 +29,9 @@ export default class AppConfigured extends Component {
   render() {
     return (
       <Provider store={store}>
-        <MainNavigator />
+        <SideMenu>
+          <MainNavigator />
+        </SideMenu>
       </Provider>
     );
   }

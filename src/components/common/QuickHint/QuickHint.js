@@ -1,6 +1,6 @@
 import Toast from '@react-native-pure/toast';
 
-import { colors } from '../../assets/styles/base';
+import { colors } from '../../../assets/styles/base';
 
 const QuickHint = (content) =>
   Toast.show({

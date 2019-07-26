@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 import { ensureCameraRollPermission } from '../../../helpers/ensurePermissions';
 import * as MealActions from '../../../store/actions/mealActions';
-import QuickHint from '../../../components/QuickHint/QuickHint';
+import QuickHint from '../../../components/common/QuickHint/QuickHint';
 import styles from './style';
 import uploadImage from '../../../helpers/uploadImage';
 import pickImage from '../../../helpers/pickImage';

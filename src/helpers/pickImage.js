@@ -1,7 +1,7 @@
 import * as FileSystem from 'expo-file-system';
 import * as ImagePicker from 'expo-image-picker';
 
-import QuickHint from '../components/QuickHint/QuickHint';
+import QuickHint from '../components/common/QuickHint/QuickHint';
 
 getFileSize = async (fileUri) => {
   const fileInfo = await FileSystem.getInfoAsync(fileUri);

@@ -1,9 +1,11 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Icon } from 'react-native-elements';
 import { Text } from 'react-native';
 import React from 'react';
 
-import { colors } from '../assets/styles/base';
+import { colors, gaps, fontSizes } from '../assets/styles/base';
 import TabNavigator from './TabNavigator';
+import SideMenuOpener from '../components/routes/SideMenu/SideMenuOpener';
 
 const RootStack = createStackNavigator(
   {
@@ -31,6 +33,8 @@ const RootStack = createStackNavigator(
 
       //For each screen:
       if (screen === 'Tab') {
+        headerLeft = <SideMenuOpener />;
+
         const { routes, index } = navigation.state;
         let tabScreen = routes[index].routeName;
 
