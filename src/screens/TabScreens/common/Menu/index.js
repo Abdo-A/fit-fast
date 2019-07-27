@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import * as mealActions from '../../../../store/actions/mealActions';
 import EnhancedView from '../../../../components/common/EnhancedView';
 import MenuItem from './components/MenuItem';
+import styles from './styles';
 
 class Menu extends Component {
   componentDidMount() {
@@ -12,28 +13,29 @@ class Menu extends Component {
   }
 
   render() {
+    const { allMeals, isLoading } = this.props;
+
     return (
       <EnhancedView style={styles.container}>
-        {this.props.allMeals.map((meal) => (
+        {allMeals.map((meal) => (
           <MenuItem key={meal._id} meal={meal} />
         ))}
+
+        {/* Handle the case if there are no meals */}
+
+        {allMeals.length === 0 && !isLoading ? (
+          <View style={styles.noItemsTextContainer}>
+            <Text style={styles.noItemsText}>No Menu Items Yet</Text>
+          </View>
+        ) : null}
       </EnhancedView>
     );
   }
 }
 
-Menu.propTypes = {};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center'
-  }
-});
-
 const mapStateToProps = (state) => ({
-  allMeals: state.meal.allMeals
+  allMeals: state.meal.allMeals,
+  isLoading: state.general.isLoading
 });
 
 const mapDispatchToProps = {

@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {
-  View, Input, Item, Icon, Label, Text,
-} from 'native-base';
+import { View, Input, Item, Icon, Label, Text } from 'native-base';
 import { colors } from '../../../../assets/styles/base';
 import styles from './styles';
 
@@ -15,7 +13,7 @@ class PrimaryTextInput extends React.Component {
     const { initialValue } = props;
     this.state = {
       text: initialValue || '',
-      focused: false,
+      focused: false
     };
   }
 
@@ -27,7 +25,7 @@ class PrimaryTextInput extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     if (nextProps.value || nextProps.value === '') {
       return {
-        text: nextProps.value,
+        text: nextProps.value
       };
     }
     return {};
@@ -36,9 +34,7 @@ class PrimaryTextInput extends React.Component {
   onChangeText = (value) => {
     let actualValue = value;
 
-    const {
-      onChangeText, name, maxCharacters, keyboardType,
-    } = this.props;
+    const { onChangeText, name, maxCharacters, keyboardType } = this.props;
 
     if (value.length > maxCharacters) return;
 
@@ -65,7 +61,7 @@ class PrimaryTextInput extends React.Component {
       autofocus,
       hasBackgroundOnFocus,
       colorOnFocus,
-      disabled,
+      disabled
     } = this.props;
 
     const { text, focused } = this.state;
@@ -73,20 +69,20 @@ class PrimaryTextInput extends React.Component {
     const currentColor = error
       ? colors.error
       : colorOnFocus && focused
-        ? colorOnFocus
-        : color;
+      ? colorOnFocus
+      : color;
     const currentBackgroundColor = !hasBackgroundOnFocus
       ? backgroundColor
       : focused
-        ? backgroundColor
-        : 'transparent';
+      ? backgroundColor
+      : 'transparent';
 
     return (
       <View
         style={[
           styles.container,
           { backgroundColor: currentBackgroundColor },
-          style,
+          style
         ]}
       >
         <Item error={error} floatingLabel style={{ width: '100%' }} er>
@@ -137,7 +133,7 @@ PrimaryTextInput.defaultProps = {
   backgroundColor: 'transparent',
   hasBackgroundOnFocus: false,
   autofocus: false,
-  disabled: false,
+  disabled: false
 };
 
 PrimaryTextInput.propTypes = {
@@ -158,7 +154,7 @@ PrimaryTextInput.propTypes = {
   backgroundColor: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   hasBackgroundOnFocus: PropTypes.bool,
   autofocus: PropTypes.bool,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export default PrimaryTextInput;

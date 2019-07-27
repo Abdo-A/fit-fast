@@ -67,11 +67,6 @@ const RootStack = createStackNavigator(
               style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
             />
           );
-          headerLeft = (
-            <Text
-              style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
-            />
-          );
           headerStyle = {
             backgroundColor: colors.primary
           };
