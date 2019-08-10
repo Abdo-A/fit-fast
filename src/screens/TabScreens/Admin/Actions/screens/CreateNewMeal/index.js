@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Image, View } from 'react-native';
 import React, { useState } from 'react';
 
+import { arrayHasEmptyValue } from '../../../../../../helpers/isEmpty';
 import { ensureCameraRollPermission } from '../../../../../../helpers/ensurePermissions';
 import { sizes } from '../../../../../../assets/styles/base';
 import * as GeneralActions from '../../../../../../store/actions/generalActions';
@@ -14,11 +15,15 @@ import pickImage from '../../../../../../helpers/pickImage';
 import QuickHint from '../../../../../../components/common/QuickHint/QuickHint';
 import styles from './styles';
 import uploadImage from '../../../../../../helpers/uploadImage';
-import { arrayHasEmptyValue } from '../../../../../../helpers/isEmpty';
 
 const createNewMealBackground = require('../../../../../../assets/images/createNewMealBackground.jpg');
 
-const CreateNewMeal = ({ navigation, createMeal, startLoading }) => {
+const CreateNewMeal = ({
+  navigation,
+  createMeal,
+  getAllMeals,
+  startLoading
+}) => {
   const [meal, setMeal] = useState({
     name: '',
     pictures: [],
@@ -46,7 +51,8 @@ const CreateNewMeal = ({ navigation, createMeal, startLoading }) => {
 
     const callback = () => {
       QuickHint('Meal Successfully created');
-      navigation.goBack();
+      getAllMeals();
+      navigation.navigate('tabScreen1');
     };
 
     createMeal(meal, callback);
@@ -133,6 +139,7 @@ CreateNewMeal.navigationOptions = {
 
 const mapDispatchToProps = {
   createMeal: MealActions.createMeal,
+  getAllMeals: MealActions.getAllMeals,
   startLoading: GeneralActions.startLoading
 };
 

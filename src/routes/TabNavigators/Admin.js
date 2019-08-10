@@ -3,10 +3,6 @@ import { Icon } from 'react-native-elements';
 import React from 'react';
 
 import { colors, sizes } from '../../assets/styles/base';
-import Actions from '../../screens/TabScreens/Admin/Actions';
-import Menu from '../../screens/TabScreens/common/Menu';
-import Orders from '../../screens/TabScreens/Admin/Orders';
-import UploadImage from '../../screens/tests/UploadImage';
 import screens from '../../screens';
 
 export default createMaterialTopTabNavigator(
@@ -58,7 +54,7 @@ export default createMaterialTopTabNavigator(
   {
     // Config
 
-    initialRouteName: 'tabScreen3',
+    initialRouteName: 'tabScreen1',
     order: ['tabScreen1', 'tabScreen2', 'tabScreen3'],
     tabBarPosition: 'bottom',
     swipeEnabled: true,
