@@ -24,3 +24,9 @@ export const toggleSideMenu = () => (dispatch, getState) => {
     });
   }
 };
+
+export const startLoading = (callback) => (dispatch) => {
+  dispatch({
+    type: actionTypes.START_LOADING
+  });
+};

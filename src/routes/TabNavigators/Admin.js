@@ -7,12 +7,13 @@ import Actions from '../../screens/TabScreens/Admin/Actions';
 import Menu from '../../screens/TabScreens/common/Menu';
 import Orders from '../../screens/TabScreens/Admin/Orders';
 import UploadImage from '../../screens/tests/UploadImage';
+import screens from '../../screens';
 
 export default createMaterialTopTabNavigator(
   {
     //--specific navigationOptions for each tab
     tabScreen1: {
-      screen: Menu,
+      screen: screens.AdminScreens.Menu,
       navigationOptions: {
         tabBarLabel: 'Menu',
         tabBarIcon: ({ tintColor }) => (
@@ -26,7 +27,7 @@ export default createMaterialTopTabNavigator(
       }
     },
     tabScreen2: {
-      screen: Orders,
+      screen: screens.AdminScreens.Orders,
       navigationOptions: {
         tabBarLabel: 'Orders',
         tabBarIcon: ({ tintColor }) => (
@@ -40,7 +41,7 @@ export default createMaterialTopTabNavigator(
       }
     },
     tabScreen3: {
-      screen: Actions,
+      screen: screens.AdminScreens.Actions,
       navigationOptions: {
         tabBarLabel: 'Actions',
         tabBarIcon: ({ tintColor }) => (
@@ -57,7 +58,7 @@ export default createMaterialTopTabNavigator(
   {
     // Config
 
-    initialRouteName: 'tabScreen1',
+    initialRouteName: 'tabScreen3',
     order: ['tabScreen1', 'tabScreen2', 'tabScreen3'],
     tabBarPosition: 'bottom',
     swipeEnabled: true,

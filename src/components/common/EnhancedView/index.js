@@ -4,7 +4,7 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   ScrollView,
-  View,
+  View
 } from 'react-native';
 import PropTypes from 'prop-types';
 import PTRView from 'react-native-pull-to-refresh';
@@ -16,16 +16,16 @@ const EnhancedView = ({
   style,
   backgroundImageUrl,
   backgroundImagePath,
-  backgroundImageBlueRadius,
+  backgroundImageBlurRadius,
   children,
   isLoading,
   onRefresh,
-  keyboardVerticalOffset,
+  keyboardVerticalOffset
 }) => {
   const component = (
     <ImageBackground
       style={{ width: '100%', height: '100%', flex: 1 }}
-      blurRadius={backgroundImageBlueRadius}
+      blurRadius={backgroundImageBlurRadius}
       source={
         backgroundImageUrl
           ? { uri: backgroundImageUrl }
@@ -70,13 +70,13 @@ EnhancedView.defaultProps = {
 
   backgroundImageUrl: null,
   backgroundImagePath: null,
-  backgroundImageBlueRadius: 0,
+  backgroundImageBlurRadius: 0,
 
   onRefresh: null,
 
   children: null,
 
-  keyboardVerticalOffset: 0,
+  keyboardVerticalOffset: 0
 };
 
 EnhancedView.propTypes = {
@@ -85,10 +85,10 @@ EnhancedView.propTypes = {
   backgroundImageUrl: PropTypes.string,
   backgroundImagePath: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   // the passed prop backgroundImagePath should be in the form: require('../../image.png')
-  backgroundImageBlueRadius: PropTypes.number,
+  backgroundImageBlurRadius: PropTypes.number,
 
   onRefresh: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
   // only if the prop onRefresh prop is passed, view will be refreshable
@@ -97,10 +97,10 @@ EnhancedView.propTypes = {
 
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
+    PropTypes.node
   ]),
 
-  keyboardVerticalOffset: PropTypes.number,
+  keyboardVerticalOffset: PropTypes.number
 };
 
 export default EnhancedView;

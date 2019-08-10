@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default class Talabaty extends Component {
+export default class MyOrders extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -11,7 +11,7 @@ export default class Talabaty extends Component {
   }
 }
 
-Talabaty.propTypes = {};
+MyOrders.propTypes = {};
 
 const styles = StyleSheet.create({
   container: {

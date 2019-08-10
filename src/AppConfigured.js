@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { loadFonts } from './assets/styles/fonts/loadFonts';
 import EnhancedView from './components/common/EnhancedView';
 import MainNavigator from './routes/MainNavigator';
-import SideMenu from './routes/SideMenu';
+import SideMenu from './routes/SideNavigator';
 
 // The main App component with the following configured:
 // => React Navigation

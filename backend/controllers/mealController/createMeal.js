@@ -8,10 +8,10 @@ module.exports = createMeal = (req, res) => {
   const errors = {};
 
   const newMeal = {
-    pictures: req.body.pictureLinks.map((pictureLink) => ({
+    pictures: req.body.pictures.map((pictureLink) => ({
       link: pictureLink
     })),
-    name: req.body.name,
+    name: req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1),
     price: req.body.price,
     ingredients: req.body.ingredients,
     nutritionFacts: req.body.nutritionFacts

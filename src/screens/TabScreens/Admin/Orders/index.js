@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default class Otlob extends Component {
+export default class Orders extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>يا باشا بقولك مافيش منيو يبقى اكيد مينفعش تطلب!!</Text>
+        <Text>No Orders Yet</Text>
       </View>
     );
   }
 }
 
-Otlob.propTypes = {};
+Orders.propTypes = {};
 
 const styles = StyleSheet.create({
   container: {

@@ -15,7 +15,7 @@ import OctIcon from 'react-native-vector-icons/Octicons';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { sizes, colors } from '../../../assets/styles/base';
+import { sizes, colors, fontSizes, gaps } from '../../../assets/styles/base';
 
 const MainTextInput = ({
   initialValue,
@@ -29,10 +29,21 @@ const MainTextInput = ({
   infoText,
   iconType,
   iconName,
+  small,
   ...props
 }) => {
   const onChangeText = (value) => {
-    onChange(name, value);
+    let submittedValue = value;
+
+    if (keyboardType == 'number-pad' || keyboardType == 'numeric') {
+      if (isNaN(submittedValue)) {
+        submittedValue = '';
+      } else {
+        submittedValue = Number(submittedValue);
+      }
+    }
+
+    onChange(name, submittedValue);
   };
 
   let iconClass = '';
@@ -77,10 +88,19 @@ const MainTextInput = ({
       break;
   }
 
-  console.log(iconClass);
-
   return (
-    <View style={{ alignSelf: 'center', width: sizes.mainContentWidth }}>
+    <View
+      style={{
+        alignSelf: small ? 'flex-start' : 'center',
+        width: small
+          ? sizes.mainContentWidthWithoutPercent / 2 + '%'
+          : sizes.mainContentWidth,
+        marginLeft: small
+          ? (100 - sizes.mainContentWidthWithoutPercent) * 2
+          : 0,
+        marginVertical: gaps.md
+      }}
+    >
       <Fumi
         label={label}
         onChangeText={onChangeText}
@@ -98,14 +118,19 @@ const MainTextInput = ({
         inputPadding={16}
         keyboardType={keyboardType}
         defaultValue={initialValue}
+        style={{
+          borderColor: colors.primary,
+          borderWidth: 2,
+          borderRadius: 5
+        }}
         {...props}
       />
       {error ? (
         <Text
           style={{
-            marginLeft: 20,
-            marginTop: -10,
+            marginLeft: 50,
             fontWeight: 'bold',
+            fontSize: fontSizes.sm,
             color: colors.red.toString()
           }}
         >
@@ -114,9 +139,9 @@ const MainTextInput = ({
       ) : infoText ? (
         <Text
           style={{
-            marginLeft: 20,
-            marginTop: -10,
+            marginLeft: 50,
             fontWeight: 'bold',
+            fontSize: fontSizes.sm,
             color: color ? color.toString() : colors.primaryLight
           }}
         >
@@ -135,9 +160,10 @@ MainTextInput.defaultProps = {
   infoText: null,
   initialValue: '',
   keyboardType: 'default',
-  color: colors.primaryLight,
+  color: colors.black,
   iconType: 'FontAwesome',
-  iconName: 'pencil-square-o'
+  iconName: 'pencil-square-o',
+  small: false
 };
 
 MainTextInput.propTypes = {
@@ -152,7 +178,8 @@ MainTextInput.propTypes = {
   keyboardType: PropTypes.string,
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   iconType: PropTypes.string,
-  iconName: PropTypes.string
+  iconName: PropTypes.string,
+  small: PropTypes.bool
 };
 
 export default MainTextInput;

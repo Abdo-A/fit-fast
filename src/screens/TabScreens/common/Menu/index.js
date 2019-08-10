@@ -13,10 +13,10 @@ class Menu extends Component {
   }
 
   render() {
-    const { allMeals, isLoading } = this.props;
+    const { allMeals, getAllMeals, isLoading } = this.props;
 
     return (
-      <EnhancedView style={styles.container}>
+      <EnhancedView style={styles.container} onRefresh={getAllMeals}>
         {allMeals.map((meal) => (
           <MenuItem key={meal._id} meal={meal} />
         ))}

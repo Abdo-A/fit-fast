@@ -1,16 +1,18 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Icon } from 'react-native-elements';
 import { Text } from 'react-native';
 import React from 'react';
 
 import { colors, gaps, fontSizes } from '../assets/styles/base';
+import screens from '../screens';
 import SideMenuOpener from '../components/routes/SideMenu/SideMenuOpener';
 import tabNavigators from './TabNavigators';
 
 const RootStack = createStackNavigator(
   {
     AdminTab: tabNavigators.AdminTabNavigator,
-    UserTab: tabNavigators.UserTabNavigator
+    UserTab: tabNavigators.UserTabNavigator,
+
+    CreateNewMeal: screens.CreateNewMealScreen
   },
   {
     initialRouteName: 'AdminTab',
@@ -24,7 +26,7 @@ const RootStack = createStackNavigator(
       let headerRight = '';
       let headerLeft = '';
       let headerStyle = {
-        backgroundColor: colors.secondary
+        backgroundColor: colors.primary
       };
       let headerTitleStyle = {
         color: colors.white
@@ -62,6 +64,7 @@ const RootStack = createStackNavigator(
         }
 
         if (tabScreen === 'tabScreen3') {
+          headerTitle = 'Actions';
           headerRight = (
             <Text
               style={{ marginRight: 20, fontSize: 20, color: colors.secondary }}
