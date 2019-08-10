@@ -28,7 +28,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.team.fitfast"
+      "package": "com.team.fitcourt"
     }
   }
 }
