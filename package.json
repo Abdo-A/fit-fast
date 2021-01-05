@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@react-native-pure/toast": "^2.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "color": "^3.1.2",
     "expo": "^33.0.0",
     "expo-file-system": "^5.0.1",
